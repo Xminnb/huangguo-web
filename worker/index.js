@@ -13,7 +13,7 @@
 // 7. 播放解析优先用官方 /api/videos/{id}/play，并**对比声明时长与实际 m3u8 时长**，
 //    当源站只下发占位/预览片段时以 incomplete 标记返回，供前端如实提示（而非误判为解析失败）。
 
-const SITE = 'https://huangguoai.com';
+const SITE = 'https://huangguoai.io';
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36';
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -669,3 +669,4 @@ async function handle(request) {
 }
 
 addEventListener('fetch', (event) => event.respondWith(handle(event.request)));
+
