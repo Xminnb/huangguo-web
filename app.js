@@ -180,7 +180,10 @@ function fromItem(it) {
     vod_desc: it.description || '',
     episode_count: Number(it.episode_count || 0),
     total_episodes: Number(it.total_episodes || 0),
-    is_finished: !!it.is_finished
+    is_finished: !!it.is_finished,
+    episodes: (it.episodes || []).map(function (e) {
+      return { ep: String(e.ep_num != null ? e.ep_num : e.ep), title: e.title || '', duration: Number(e.duration || 0) };
+    })
   };
 }
 
