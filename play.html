@@ -260,6 +260,10 @@ async function init(){
     if(!x)throw Error('详情为空');
     DATA.list=x;
     DATA.episodes=x.episodes||[];
+    if(!DATA.episodes.length){
+      const n=Number(x.episode_count||x.total_episodes||0);
+      for(let i=1;i<=n;i++)DATA.episodes.push({ep:String(i),title:'第'+i+'集'});
+    }
     document.title=x.vod_name+' · 第'+ep+'集 · 黄果解析';
     $('#title').textContent=x.vod_name;
     $('#player-title').textContent=x.vod_name+' · 第'+ep+'集';
