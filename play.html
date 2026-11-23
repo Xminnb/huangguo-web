@@ -216,6 +216,7 @@ function markActive(ep){
 async function loadEpisode(ep,push){
   DATA.ep=String(ep);
   markActive(DATA.ep);
+  if(DATA.list){document.title=DATA.list.vod_name+' · 第'+DATA.ep+'集 · 黄果解析';$('#player-title').textContent=DATA.list.vod_name+' · 第'+DATA.ep+'集';}
   if(push){const u=new URL(location.href);u.searchParams.set('id',DATA.id);u.searchParams.set('ep',DATA.ep);history.replaceState(null,'',u)}
   setPlayerStatus('正在解析第'+DATA.ep+'集…');
   setWarn('');
