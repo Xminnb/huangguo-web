@@ -270,7 +270,7 @@ async function init(){
     $('#desc').textContent=x.vod_desc||'暂无简介';
     $('#tags').innerHTML=(x.vod_tags||[]).map(t=>`<span>${esc(t)}</span>`).join('');
     $('#poster').innerHTML=x.vod_pic?imgTag(x.vod_pic,x.vod_name):'<span>黄果</span>';
-    const meta=[['类型',(x.vod_tags||[]).join(' / ')],['集数',x.vod_episode_count?x.vod_episode_count+' 集':'-'],['状态',x.vod_finished?'已完结':'连载中'],['评分',x.vod_score?x.vod_score+' 分':'-'],['年份',x.vod_year||'-'],['作者',x.vod_author||'-'],['热度',x.vod_hot?Number(x.vod_hot).toLocaleString():'-'],['更新',x.vod_created||'-']];
+    const meta=[['类型',(x.vod_tags||[]).join(' / ')],['集数',x.episode_count?x.episode_count+' 集':'-'],['状态',x.vod_finished?'已完结':'连载中'],['评分',x.vod_score?x.vod_score+' 分':'-'],['年份',x.vod_year||'-'],['作者',x.vod_author||'-'],['热度',x.vod_hot?Number(x.vod_hot).toLocaleString():'-'],['更新',x.vod_created||'-']];
     $('#meta-list').innerHTML=meta.map(m=>`<div><span>${esc(m[0])}</span><b>${esc(m[1])}</b></div>`).join('');
     $('#ep-count').textContent=DATA.episodes.length+' 集';
     $('#episodes').innerHTML=DATA.episodes.map(e=>`<button data-ep="${esc(e.ep)}" class="${String(e.ep)===String(ep)?'active':''}">${esc(e.title||('第'+e.ep+'集'))}</button>`).join('');
